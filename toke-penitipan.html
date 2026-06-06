@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasa Penitipan Barang Toke ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--pk:#FF6B9D;--lpk:#FFB3CC;--lav:#C4B5FD;--pur:#8B5CF6;--dpur:#6D28D9;--soft:#FFF0F7}
+body{font-family:'Nunito',sans-serif;min-height:100vh;background:linear-gradient(135deg,#FF6B9D 0%,#C4B5FD 50%,#8B5CF6 100%);color:#3D1A6E}
+.page{display:none;min-height:100vh;padding:20px 16px}
+.page.active{display:block}
+
+/* HOME */
+.card{max-width:460px;margin:0 auto;background:rgba(255,255,255,0.93);border-radius:28px;padding:28px 22px;box-shadow:0 20px 60px rgba(139,92,246,.35);backdrop-filter:blur(12px)}
+.logo-emoji{font-size:60px;text-align:center;margin-bottom:6px}
+.store-name{font-size:26px;font-weight:900;text-align:center;background:linear-gradient(135deg,#FF6B9D,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.tagline{text-align:center;font-size:13px;color:#9370DB;font-weight:700;margin-top:4px;margin-bottom:18px}
+.stars{text-align:center;font-size:18px;letter-spacing:6px;margin-bottom:18px}
+
+
+.cat-card{background:linear-gradient(135deg,#FFF0F7,#F3E8FF);border:2px solid var(--lpk);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.cat-emoji{font-size:34px}
+.cat-name{font-weight:800;font-size:15px;color:#5B21B6}
+.cat-price{font-size:13px;color:var(--pk);font-weight:700;margin-top:2px}
+
+.btn-main{width:100%;padding:16px;background:linear-gradient(135deg,#FF6B9D,#8B5CF6);color:#fff;border:none;border-radius:16px;font-size:17px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;box-shadow:0 8px 25px rgba(255,107,157,.4);transition:transform .2s;margin-top:8px}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-back{width:100%;padding:13px;background:rgba(255,255,255,.9);color:#8B5CF6;border:2px solid var(--lav);border-radius:14px;font-size:15px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;margin-top:10px}
+
+/* FORM */
+.form-title{font-size:21px;font-weight:900;text-align:center;background:linear-gradient(135deg,#FF6B9D,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px}
+.fg{margin-bottom:14px}
+label{display:block;font-weight:800;font-size:12.5px;color:#5B21B6;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+input,select{width:100%;padding:11px 14px;border:2px solid var(--lav);border-radius:12px;font-size:14px;font-family:'Nunito',sans-serif;background:#FFF5FC;color:#3D1A6E;outline:none;transition:border-color .2s}
+input:focus,select:focus{border-color:var(--pk)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.item-row{background:linear-gradient(135deg,#FFF0F7,#F3E8FF);border:2px solid var(--lpk);border-radius:14px;padding:14px;margin-bottom:10px}
+.item-label{font-weight:800;font-size:14px;color:#5B21B6}
+.item-price-tag{font-size:12px;color:var(--pk);font-weight:700;margin-top:2px}
+.counter{display:flex;align-items:center;gap:14px;margin-top:10px}
+.cbtn{width:36px;height:36px;border-radius:50%;border:none;background:linear-gradient(135deg,#FF6B9D,#C4B5FD);color:#fff;font-size:22px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
+.cval{font-size:22px;font-weight:900;color:#5B21B6;min-width:28px;text-align:center}
+
+.total-preview{background:linear-gradient(135deg,rgba(255,107,157,.1),rgba(139,92,246,.1));border:2px solid var(--lav);border-radius:14px;padding:14px;text-align:center;margin:16px 0}
+.total-label{font-size:12px;color:#9370DB;font-weight:700}
+.total-amount{font-size:28px;font-weight:900;color:var(--pk)}
+
+/* INVOICE */
+.inv-wrap{max-width:460px;margin:0 auto}
+.inv-card{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(139,92,246,.35)}
+.inv-head{background:linear-gradient(135deg,#FF6B9D,#8B5CF6);padding:22px;text-align:center;color:#fff}
+.inv-head .sname{font-size:20px;font-weight:900;line-height:1.2}
+.inv-head .stag{font-size:11px;opacity:.9;margin-top:3px}
+.inv-head .inv-no{font-size:12px;margin-top:12px;background:rgba(255,255,255,.22);border-radius:8px;padding:6px 14px;display:inline-block;font-weight:800;letter-spacing:.5px}
+
+.inv-body{padding:18px}
+.inv-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;font-size:13.5px;border-bottom:1px dashed #F0D6FF}
+.inv-row:last-child{border-bottom:none}
+.inv-key{color:#9370DB;font-weight:600;flex-shrink:0;margin-right:8px}
+.inv-val{font-weight:800;color:#3D1A6E;text-align:right}
+.items-title{font-size:12px;font-weight:900;color:#5B21B6;margin:14px 0 8px;padding-bottom:6px;border-bottom:2px solid #F0D6FF;text-transform:uppercase;letter-spacing:.5px}
+.inv-total-row{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#FFF0F7,#F3E8FF);padding:12px 14px;border-radius:12px;margin-top:10px}
+.inv-total-label{font-size:14px;font-weight:800;color:#5B21B6}
+.inv-total-val{font-size:18px;font-weight:900;color:var(--pk)}
+
+.pay-note{background:linear-gradient(135deg,#FFEEF6,#F0E8FF);border:2.5px dashed #C4B5FD;border-radius:12px;padding:12px;text-align:center;margin:14px 0;font-size:12.5px;font-weight:800;color:#7C3AED;line-height:1.5}
+
+.qr-section{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.qr-box{background:linear-gradient(135deg,#FFF0F7,#F3E8FF);border:2px solid var(--lpk);border-radius:14px;padding:12px;text-align:center}
+.qr-box img{width:100%;max-width:110px;height:auto;border-radius:8px;border:2px solid #E9D5FF}
+.qr-label{font-size:11px;font-weight:900;color:#5B21B6;margin-top:7px}
+.qr-sub{font-size:10px;color:#9370DB;margin-top:2px}
+
+.qris-img{width:100%;max-width:110px;height:auto;border-radius:8px;border:2px solid #E9D5FF}
+
+.ss-note{background:linear-gradient(135deg,#FF6B9D,#8B5CF6);color:#fff;padding:14px;text-align:center;font-size:14px;font-weight:900;letter-spacing:.3px}
+.footer-love{text-align:center;font-size:11px;color:#D8B4FE;font-weight:700;margin:10px 0 4px}
+
+
+</style>
+</head>
+<body>
+
+<!-- PAGE: HOME -->
+<div id="pg-home" class="page active">
+  <div class="card" style="margin-top:24px">
+    <div class="logo-emoji">🌸</div>
+    <div class="store-name">Jasa Penitipan Barang<br>Toke</div>
+    <div class="tagline">✨ Titip aman, hati tenang ✨</div>
+    <div class="stars">⭐ 💜 ⭐</div>
+
+    <div class="cat-card">
+      <span class="cat-emoji">👜</span>
+      <div><div class="cat-name">Tas / Goodiebag</div><div class="cat-price">Rp 25.000 / item</div></div>
+    </div>
+    <div class="cat-card">
+      <span class="cat-emoji">🧳</span>
+      <div><div class="cat-name">Koper Kabin</div><div class="cat-price">Rp 40.000 / item</div></div>
+    </div>
+    <div class="cat-card">
+      <span class="cat-emoji">🛄</span>
+      <div><div class="cat-name">Koper 24 inc+</div><div class="cat-price">Rp 50.000 / item</div></div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#FFF0F7,#F3E8FF);border-radius:12px;padding:12px;margin:14px 0;font-size:12.5px;color:#7C3AED;font-weight:700;text-align:center;line-height:1.6">
+      💳 Pembayaran dilakukan saat pengambilan barang<br>
+      <span style="font-size:11px;color:#9370DB">Buat faktur → Screenshot → Ambil barang → Bayar QRIS</span>
+    </div>
+    <button class="btn-main" onclick="showPage('pg-form')">✨ Titipkan Barang Sekarang</button>
+  </div>
+</div>
+
+<!-- PAGE: FORM -->
+<div id="pg-form" class="page">
+  <div class="card" style="margin-top:18px">
+    <div class="form-title">📝 Form Penitipan</div>
+
+    <div class="fg"><label>👤 Nama Lengkap</label><input id="f-nama" type="text" placeholder="Nama lengkap kamu..."></div>
+    <div class="fg"><label>📱 Nomor WhatsApp</label><input id="f-wa" type="tel" placeholder="08xxxxxxxxxx"></div>
+    <div class="row2">
+      <div class="fg"><label>📅 Tanggal Titip</label><input id="f-tgl" type="date"></div>
+      <div class="fg"><label>📦 Est. Ambil</label><input id="f-ambil" type="date"></div>
+    </div>
+
+    <div style="font-weight:900;font-size:13px;color:#5B21B6;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px">🛍️ Pilih Barang Titipan</div>
+
+    <div class="item-row">
+      <div class="item-label">👜 Tas / Goodiebag</div>
+      <div class="item-price-tag">Rp 25.000 / item</div>
+      <div class="counter">
+        <button class="cbtn" onclick="adj('tas',-1)">−</button>
+        <span class="cval" id="cnt-tas">0</span>
+        <button class="cbtn" onclick="adj('tas',1)">+</button>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-label">🧳 Koper Kabin</div>
+      <div class="item-price-tag">Rp 40.000 / item</div>
+      <div class="counter">
+        <button class="cbtn" onclick="adj('kabin',-1)">−</button>
+        <span class="cval" id="cnt-kabin">0</span>
+        <button class="cbtn" onclick="adj('kabin',1)">+</button>
+      </div>
+    </div>
+    <div class="item-row">
+      <div class="item-label">🛄 Koper 24 inc+</div>
+      <div class="item-price-tag">Rp 50.000 / item</div>
+      <div class="counter">
+        <button class="cbtn" onclick="adj('besar',-1)">−</button>
+        <span class="cval" id="cnt-besar">0</span>
+        <button class="cbtn" onclick="adj('besar',1)">+</button>
+      </div>
+    </div>
+
+    <div class="total-preview">
+      <div class="total-label">💰 Total Tagihan (dibayar saat ambil)</div>
+      <div class="total-amount" id="total-preview">Rp 0</div>
+    </div>
+
+    <button class="btn-main" onclick="genInvoice()">🧾 Buat Faktur</button>
+    <button class="btn-back" onclick="showPage('pg-home')">← Kembali ke Beranda</button>
+  </div>
+</div>
+
+<!-- PAGE: INVOICE -->
+<div id="pg-invoice" class="page">
+  <div class="inv-wrap" style="margin-top:18px">
+    <div class="inv-card" id="inv-area">
+      <div class="inv-head">
+        <div style="font-size:38px">🌸</div>
+        <div class="sname">Jasa Penitipan Barang Toke</div>
+        <div class="stag">✨ Titip aman, hati tenang ✨</div>
+        <div class="inv-no" id="inv-no">DDL-XXXXXX</div>
+      </div>
+
+      <div class="inv-body">
+        <div>
+          <div class="inv-row"><span class="inv-key">📅 Tgl Titip</span><span class="inv-val" id="inv-tgl">-</span></div>
+          <div class="inv-row"><span class="inv-key">📦 Est. Ambil</span><span class="inv-val" id="inv-ambil">-</span></div>
+          <div class="inv-row"><span class="inv-key">👤 Nama</span><span class="inv-val" id="inv-nama">-</span></div>
+          <div class="inv-row"><span class="inv-key">📱 No. WA</span><span class="inv-val" id="inv-wa">-</span></div>
+        </div>
+
+        <div class="items-title">🛍️ Detail Barang Titipan</div>
+        <div id="inv-items"></div>
+        <div class="inv-total-row">
+          <span class="inv-total-label">💰 Total Tagihan</span>
+          <span class="inv-total-val" id="inv-total">Rp 0</span>
+        </div>
+
+        <div class="pay-note">
+          💳 Pembayaran dilakukan saat pengambilan barang<br>
+          <span style="font-size:11px;font-weight:600;color:#9370DB">Tunjukkan faktur ini kepada petugas Toke ✨</span>
+        </div>
+
+        <div class="qr-section">
+          <div class="qr-box">
+            <img id="qr-wa" src="" alt="QR WhatsApp" style="background:#f0f0f0">
+            <div class="qr-label">📱 Hubungi Kami</div>
+            <div class="qr-sub">Scan → WhatsApp</div>
+          </div>
+          <div class="qr-box">
+            <img id="qris-display" src="" alt="QRIS" class="qris-img" style="background:#f0f0f0">
+            <div class="qr-label">💳 Bayar Saat Ambil</div>
+            <div class="qr-sub">Scan QRIS di tempat</div>
+          </div>
+        </div>
+
+        <div class="footer-love">⭐ Terima kasih telah mempercayai Toke ⭐</div>
+      </div>
+
+      <div class="ss-note">📸 Cetak / Screenshot faktur dibawah ini untuk pengambilan barang!</div>
+    </div>
+
+    <button class="btn-main" onclick="window.print()">🖨️ Cetak / Screenshot Faktur</button>
+    <button class="btn-back" style="margin-top:14px;margin-bottom:30px" onclick="resetForm()">🏠 Kembali ke Beranda</button>
+  </div>
+</div>
+
+<script>
+// ⚙️ KONFIGURASI - GANTI NILAI INI SESUAI KEBUTUHAN ANDA
+let cfgWA = '6282249374875';  // Nomor WhatsApp yang akan ditunjukkan
+let cfgQRIS = 'https://i.imgur.com/Q7jKfMe.png';  // URL gambar QRIS pembayaran
+
+// 💡 TIPS MENGGUNAKAN QRIS:
+// 1. Buat/screenshot gambar QRIS Anda
+// 2. Upload ke imgur.com atau tempat hosting gambar lain (gratis, tanpa login)
+// 3. Copy URL gambar, lalu ganti value cfgQRIS di atas dengan URL baru
+// 4. Contoh format URL yang benar: 'https://i.imgur.com/xxxxxx.png'
+
+const it = {tas:0,kabin:0,besar:0};
+const pr = {tas:25000,kabin:40000,besar:50000};
+
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function adj(k,d){
+  it[k]=Math.max(0,it[k]+d);
+  document.getElementById('cnt-'+k).textContent=it[k];
+  updTotal();
+}
+
+function updTotal(){
+  const t=it.tas*pr.tas+it.kabin*pr.kabin+it.besar*pr.besar;
+  document.getElementById('total-preview').textContent='Rp '+t.toLocaleString('id-ID');
+}
+
+function fmt(s){
+  if(!s)return'-';
+  const d=new Date(s+'T00:00:00');
+  return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});
+}
+
+function genInvoice(){
+  try {
+    const nama=document.getElementById('f-nama').value.trim();
+    const wa=document.getElementById('f-wa').value.trim();
+    const tgl=document.getElementById('f-tgl').value;
+    const ambil=document.getElementById('f-ambil').value;
+
+    if(!nama||!wa||!tgl||!ambil){alert('Mohon lengkapi semua data dulu ya! 🌸');return;}
+    const total=it.tas*pr.tas+it.kabin*pr.kabin+it.besar*pr.besar;
+    if(total===0){alert('Pilih minimal 1 barang dulu ya! 🌸');return;}
+    if(ambil<tgl){alert('Tanggal pengambilan tidak bisa sebelum tanggal titip 🌸');return;}
+
+    const now=new Date();
+    const invNo='DDL-'+now.getFullYear().toString().slice(2)+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.floor(Math.random()*900+100);
+
+    document.getElementById('inv-no').textContent=invNo;
+    document.getElementById('inv-tgl').textContent=fmt(tgl);
+    document.getElementById('inv-ambil').textContent=fmt(ambil);
+    document.getElementById('inv-nama').textContent=nama;
+    document.getElementById('inv-wa').textContent=wa;
+    document.getElementById('inv-total').textContent='Rp '+total.toLocaleString('id-ID');
+
+    const lb={tas:'👜 Tas / Goodiebag',kabin:'🧳 Koper Kabin',besar:'🛄 Koper 24 inc+'};
+    let html='';
+    ['tas','kabin','besar'].forEach(k=>{
+      if(it[k]>0){
+        const sub=it[k]*pr[k];
+        html+=`<div class="inv-row"><span class="inv-key">${lb[k]}<br><span style="font-size:11px;font-weight:600">${it[k]} item × Rp ${pr[k].toLocaleString('id-ID')}</span></span><span class="inv-val">Rp ${sub.toLocaleString('id-ID')}</span></div>`;
+      }
+    });
+    document.getElementById('inv-items').innerHTML=html;
+
+    const waUrl=`https://wa.me/${cfgWA}?text=Halo%20Toke!%20Saya%20ingin%20mengambil%20barang%20titipan.`;
+    const qrImg=document.getElementById('qr-wa');
+    qrImg.src=`https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(waUrl)}`;
+
+    if(cfgQRIS){
+      const qrisImg = document.getElementById('qris-display');
+      qrisImg.src=cfgQRIS;
+      qrisImg.onerror = function() {
+        this.style.display = 'none';
+        const parent = this.closest('.qr-box');
+        if(parent) {
+          parent.innerHTML = '<div style="padding:20px;color:#FF6B9D;font-weight:700;font-size:12px">⚠️ Masalah: QRIS tidak bisa dimuat<br><br>Silakan hubungi melalui WhatsApp</div>';
+        }
+      };
+    }
+
+    showPage('pg-invoice');
+  } catch(e) {
+    alert('Error membuat faktur: '+e.message);
+  }
+}
+
+function resetForm(){
+  ['tas','kabin','besar'].forEach(k=>{it[k]=0;document.getElementById('cnt-'+k).textContent=0;});
+  updTotal();
+  document.getElementById('f-nama').value='';
+  document.getElementById('f-wa').value='';
+  document.getElementById('f-ambil').value='';
+  showPage('pg-home');
+}
+
+// Default tanggal hari ini
+const today=new Date().toISOString().split('T')[0];
+document.getElementById('f-tgl').value=today;
+</script>
+</body>
+</html>
